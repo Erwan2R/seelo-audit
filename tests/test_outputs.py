@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
@@ -13,7 +13,7 @@ def _audit(domain: str, score: int, temperature: str) -> Audit:
     return Audit(
         domain=domain,
         url=f"https://{domain}/",  # type: ignore[arg-type]
-        audited_at=datetime.now(UTC),
+        audited_at=datetime.now(timezone.utc),
         status="ok",
         checks=[CheckResult(id="online_booking", status="absent", evidence="test")],
         score_tunnel=score,

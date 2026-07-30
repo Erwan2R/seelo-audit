@@ -7,7 +7,7 @@ import asyncio
 import logging
 import re
 import traceback
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import httpx
@@ -98,7 +98,7 @@ async def audit_one(
         return Audit(
             domain=normalize_domain(url) if "." in url else url[:100],
             url=_placeholder_url(url),  # type: ignore[arg-type]
-            audited_at=datetime.now(UTC),
+            audited_at=datetime.now(timezone.utc),
             status="failed",
             temperature="EXCLU",
             errors=[f"URL refusée : {exc}"],
@@ -137,7 +137,7 @@ async def audit_one(
         return Audit(
             domain=domain,
             url=validated.url,  # type: ignore[arg-type]
-            audited_at=datetime.now(UTC),
+            audited_at=datetime.now(timezone.utc),
             status="timeout",
             temperature="EXCLU",
             errors=[f"audit interrompu après {settings.audit_timeout_s}s"],
@@ -146,7 +146,7 @@ async def audit_one(
         return Audit(
             domain=domain,
             url=validated.url,  # type: ignore[arg-type]
-            audited_at=datetime.now(UTC),
+            audited_at=datetime.now(timezone.utc),
             status="failed",
             temperature="EXCLU",
             errors=[str(exc), traceback.format_exc(limit=3)],
@@ -164,7 +164,7 @@ async def audit_one(
     return Audit(
         domain=domain,
         url=validated.url,  # type: ignore[arg-type]
-        audited_at=datetime.now(UTC),
+        audited_at=datetime.now(timezone.utc),
         status="ok" if not errors else "partial",
         platform=crawl_result.platform,
         robots_restricted=crawl_result.robots_restricted,

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import time
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 
 import pytest
 from fastapi.testclient import TestClient
@@ -41,7 +41,7 @@ def _make_audit(domain: str) -> Audit:
     return Audit(
         domain=domain,
         url=f"https://{domain}/",  # type: ignore[arg-type]
-        audited_at=datetime.now(UTC),
+        audited_at=datetime.now(timezone.utc),
         status="ok",
         checks=[
             CheckResult(id="online_booking", status="present", evidence="test", provider="calendly")
