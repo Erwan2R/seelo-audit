@@ -1,0 +1,254 @@
+booking:
+  - id: calendly
+    label: Calendly
+    domains: [calendly.com, assets.calendly.com]
+    selectors: [".calendly-inline-widget", "[data-url*='calendly']"]
+  - id: cal_com
+    label: Cal.com
+    domains: [cal.com, app.cal.com]
+  - id: doctolib
+    label: Doctolib
+    domains: [doctolib.fr, partners.doctolib.fr]
+    text_patterns: ["prendre rendez-vous sur doctolib"]
+  - id: resalib
+    label: Resalib
+    domains: [resalib.fr]
+  - id: medoucine
+    label: Medoucine
+    domains: [medoucine.com]
+  - id: crenolib
+    label: Crenolib
+    domains: [crenolib.fr]
+  - id: planity
+    label: Planity
+    domains: [planity.com]
+  - id: treatwell
+    label: Treatwell
+    domains: [treatwell.fr]
+  - id: fresha
+    label: Fresha
+    domains: [fresha.com]
+  - id: booksy
+    label: Booksy
+    domains: [booksy.com]
+  - id: simplybook
+    label: SimplyBook
+    domains: [simplybook.it, simplybook.me]
+  - id: acuity
+    label: Acuity Scheduling
+    domains: [acuityscheduling.com]
+  - id: squarespace_scheduling
+    label: Squarespace Scheduling
+    domains: [app.squarespacescheduling.com]
+  - id: youcanbookme
+    label: YouCanBook.me
+    domains: [youcanbook.me]
+  - id: setmore
+    label: Setmore
+    domains: [setmore.com]
+  - id: bookeo
+    label: Bookeo
+    domains: [bookeo.com]
+  - id: timify
+    label: Timify
+    domains: [timify.com]
+  - id: agendrix
+    label: Agendrix
+    domains: [agendrix.com]
+  - id: clicrdv
+    label: ClicRDV
+    domains: [clicrdv.com]
+  - id: rdv360
+    label: RDV360
+    domains: [rdv360.com]
+  - id: vagaro
+    label: Vagaro
+    domains: [vagaro.com]
+  - id: kiute
+    label: Kiute
+    domains: [kiute.com]
+  - id: flexy
+    label: Flexy
+    domains: [flexy.pro]
+  - id: zenchef
+    label: Zenchef
+    domains: [zenchef.com]
+  - id: google_calendar_appointments
+    label: Google Calendar Appointments
+    domains: ["calendar.google.com/calendar/appointments"]
+  - id: wix_bookings
+    label: Wix Bookings
+    domains: [bookings.wix.com, "wixapps.net/bookings"]
+    selectors: [".wixui-bookings"]
+  - id: reservio
+    label: Reservio
+    domains: [reservio.com]
+  - id: koalendar
+    label: Koalendar
+    domains: [koalendar.com]
+  - id: mindbody
+    label: Mindbody
+    domains: [mindbodyonline.com]
+  - id: easyweek
+    label: Easyweek
+    domains: [easyweek.io]
+  - id: zcal
+    label: Zcal
+    domains: [zcal.co]
+  - id: wordpress_amelia
+    label: WordPress Amelia
+    domains: ["wp-content/plugins/amelia"]
+  - id: wordpress_bookly
+    label: WordPress Bookly
+    domains: ["wp-content/plugins/bookly"]
+  - id: wordpress_latepoint
+    label: WordPress LatePoint
+    domains: ["wp-content/plugins/latepoint"]
+  - id: wordpress_simple_booking
+    label: WordPress Simple Booking
+    domains: ["wp-content/plugins/wp-simple-booking"]
+  - id: wordpress_salon_booking
+    label: WordPress Salon Booking
+    domains: ["wp-content/plugins/salon-booking"]
+  - id: wordpress_booked
+    label: WordPress Booked
+    domains: ["wp-content/plugins/booked"]
+
+payment:
+  - id: stripe
+    label: Stripe
+    domains: [js.stripe.com, checkout.stripe.com, buy.stripe.com]
+  - id: paypal
+    label: PayPal
+    domains: ["paypal.com/sdk", paypalobjects.com, paypal.me]
+  - id: sumup
+    label: SumUp
+    domains: [sumup.com, sumup.me]
+  - id: payplug
+    label: Payplug
+    domains: [payplug.com]
+  - id: lydia
+    label: Lydia
+    domains: [lydia-app.com]
+  - id: alma
+    label: Alma
+    domains: [getalma.eu]
+  - id: mollie
+    label: Mollie
+    domains: [mollie.com]
+  - id: systempay
+    label: Systempay
+    domains: [systempay.fr]
+  - id: payzen
+    label: PayZen
+    domains: [payzen.eu]
+  - id: monetico
+    label: Monetico
+    domains: [monetico.fr]
+  - id: stancer
+    label: Stancer
+    domains: [stancer.com]
+  - id: helloasso
+    label: HelloAsso
+    domains: [helloasso.com]
+  - id: revolut
+    label: Revolut
+    domains: [revolut.me]
+  - id: gocardless
+    label: GoCardless
+    domains: [gocardless.com]
+
+forms_embed:
+  - id: typeform
+    label: Typeform
+    domains: [typeform.com]
+  - id: tally
+    label: Tally
+    domains: [tally.so]
+  - id: jotform
+    label: Jotform
+    domains: [jotform.com]
+  - id: google_forms
+    label: Google Forms
+    domains: ["docs.google.com/forms"]
+  - id: formspree
+    label: Formspree
+    domains: [formspree.io]
+  - id: getform
+    label: Getform
+    domains: [getform.io]
+  - id: hsforms
+    label: HubSpot Forms
+    domains: [hsforms.net]
+  - id: wufoo
+    label: Wufoo
+    domains: [wufoo.com]
+  - id: airtable
+    label: Airtable
+    domains: ["airtable.com/embed"]
+  - id: contact_form_7
+    label: Contact Form 7
+    domains: ["wp-content/plugins/contact-form-7"]
+    selectors: [".wpcf7"]
+  - id: gravityforms
+    label: Gravity Forms
+    domains: ["wp-content/plugins/gravityforms"]
+  - id: ninja_forms
+    label: Ninja Forms
+    domains: ["wp-content/plugins/ninja-forms"]
+  - id: wpforms
+    label: WPForms
+    domains: ["wp-content/plugins/wpforms"]
+  - id: elementor_form
+    label: Elementor Forms
+    selectors: [".elementor-form"]
+
+trust_reviews:
+  - id: elfsight
+    label: Elfsight
+    domains: [elfsight.com]
+  - id: trustindex
+    label: Trustindex
+    domains: [trustindex.io]
+  - id: sociablekit
+    label: SociableKit
+    domains: [sociablekit.com]
+  - id: reviewsonmywebsite
+    label: ReviewsOnMyWebsite
+    domains: [reviewsonmywebsite.com]
+  - id: trustpilot
+    label: Trustpilot
+    domains: [trustpilot.com]
+  - id: google_maps_embed
+    label: Google Maps
+    domains: ["google.com/maps/embed"]
+
+platform:
+  - id: wix
+    label: Wix
+    domains: [static.wixstatic.com, "parastorage.com"]
+    text_patterns: ["wix.com"]
+  - id: squarespace
+    label: Squarespace
+    domains: [squarespace.com, static1.squarespace.com]
+  - id: wordpress
+    label: WordPress
+    domains: ["wp-content", "wp-includes"]
+  - id: webflow
+    label: Webflow
+    domains: [assets-global.website-files.com, webflow.com]
+  - id: systeme_io
+    label: Systeme.io
+    domains: [systeme.io]
+  - id: shopify
+    label: Shopify
+    domains: [cdn.shopify.com]
+  - id: jimdo
+    label: Jimdo
+    domains: [jimdo.com]
+  - id: weebly
+    label: Weebly
+    domains: [weebly.com]
+  - id: google_sites
+    label: Google Sites
+    domains: [sites.google.com]

@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Sorties générées, jamais à committer
+out/audits/*.json
+out/screenshots/*
+out/report.csv
+out/run.log
+cache/*
+!out/audits/.gitkeep
+!out/screenshots/.gitkeep
+!cache/.gitkeep
+
+.env

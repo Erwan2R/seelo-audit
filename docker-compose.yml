@@ -1,0 +1,42 @@
+services:
+  seelo-audit:
+    image: rg.fr-par.scw.cloud/${SCW_REGISTRY_NAMESPACE}/seelo-audit:${IMAGE_TAG:-latest}
+    secrets:
+      - source: seelo_audit_env
+        target: app_env
+    networks:
+      proxy:
+        # Alias explicite : nom DNS stable pour l'appel interne depuis
+        # landing-leadmagnets, indépendant du nom de la stack Swarm.
+        aliases:
+          - seelo-audit
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    deploy:
+      replicas: 1
+      # Pas de règle Traefik ici volontairement — ce service ne doit JAMAIS
+      # être exposé publiquement, seul le conteneur Next.js l'appelle en
+      # interne sur le réseau "seelo_proxy" partagé.
+      restart_policy:
+        condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+        failure_action: rollback
+      rollback_config:
+        order: stop-first
+
+networks:
+  proxy:
+    external: true
+    name: seelo_proxy
+
+secrets:
+  seelo_audit_env:
+    file: /opt/seelo-audit/.env
+    name: "seelo-audit-env-${ENV_HASH}"
