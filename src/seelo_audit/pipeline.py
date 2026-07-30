@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import httpx
+from async_timeout import timeout as async_timeout
 from playwright.async_api import Browser
 
 from seelo_audit.checks import run_html_checks
@@ -108,7 +109,7 @@ async def audit_one(
     errors: list[str] = []
 
     try:
-        async with asyncio.timeout(settings.audit_timeout_s):
+        async with async_timeout(settings.audit_timeout_s):
             ps_task = asyncio.create_task(run_pagespeed(client, validated.url, settings))
 
             crawl_result = await crawl(client, browser, validated.url, settings)
@@ -133,7 +134,7 @@ async def audit_one(
             )
 
             pagespeed_result = await ps_task
-    except TimeoutError:
+    except (TimeoutError, asyncio.TimeoutError):
         return Audit(
             domain=domain,
             url=validated.url,  # type: ignore[arg-type]
