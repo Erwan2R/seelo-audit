@@ -8,7 +8,18 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 load_dotenv()
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+def _find_project_root() -> Path:
+    # En dev (install editable), le code tourne depuis le repo -> data/ est
+    # 2 niveaux au-dessus de ce fichier. Une fois pip-installe dans une image
+    # Docker (site-packages), ce chemin n'existe plus : on retombe sur le
+    # repertoire courant, la ou le Dockerfile a copie data/ (WORKDIR /app).
+    candidate = Path(__file__).resolve().parents[2]
+    if (candidate / "data").exists():
+        return candidate
+    return Path.cwd()
+
+
+PROJECT_ROOT = _find_project_root()
 DATA_DIR = PROJECT_ROOT / "data"
 OUT_DIR = PROJECT_ROOT / "out"
 CACHE_DIR = PROJECT_ROOT / "cache"
